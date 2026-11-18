@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f2e8">
+<title>山东地名志 · 一张可以点开的地图</title>
+<meta name="description" content="山东 16 市 136 个县级政区的名字从哪来、有多美、怎么变。交互地图、成因分布、美名档案与地名变迁。">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="山东地名志 · 一张可以点开的地图">
+<meta property="og:description" content="136 个县名，136 次对这个地方的期待。点开地图，看每个名字的来历、美感与变迁。">
+<!-- GitHub Pages 部署后，建议把下面 content 的值改成你的完整地址，例如：
+     https://你的用户名.github.io/仓库名/assets/share-cover.png
+     社交平台抓取分享图时需要绝对路径。 -->
+<meta property="og:image" content="assets/share-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="preload" as="image" href="assets/hero-cloud.webp">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">
+      <span class="seal">鲁</span>
+      <span class="nav-brand-txt" data-calli>山东地名志</span>
+    </a>
+    <div class="nav-links">
+      <a href="#map" data-nav>地图</a>
+      <a href="#origin" data-nav>由来</a>
+      <a href="#beauty" data-nav>美名</a>
+      <a href="#change" data-nav>变迁</a>
+      <a href="#fun" data-nav>有趣</a>
+      <a href="#quiz" data-nav>测一测</a>
+    </div>
+  </div>
+  <div class="nav-progress"><i id="progressBar"></i></div>
+</nav>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <svg viewBox="0 0 1440 460" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="mg1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1f1b16" stop-opacity="0.02"/>
+            <stop offset="100%" stop-color="#1f1b16" stop-opacity="0.07"/>
+          </linearGradient>
+          <linearGradient id="mg2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1f1b16" stop-opacity="0.03"/>
+            <stop offset="60%" stop-color="#1f1b16" stop-opacity="0.1"/>
+            <stop offset="100%" stop-color="#1f1b16" stop-opacity="0.04"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,352 C120,352 150,268 300,262 C420,257 430,318 560,300 C690,282 700,206 840,204 C960,202 980,262 1110,262 C1240,262 1290,318 1440,330 L1440,460 L0,460 Z" fill="url(#mg1)"/>
+        <path d="M0,412 C160,410 210,352 370,354 C520,356 560,396 700,392 C840,388 880,330 1030,332 C1180,334 1250,382 1440,386 L1440,460 L0,460 Z" fill="url(#mg2)"/>
+      </svg>
+    </div>
+    <picture class="hero-cloud" aria-hidden="true">
+      <source srcset="assets/hero-cloud.webp" type="image/webp">
+      <img src="assets/hero-cloud.png" alt="" width="1200" height="632" decoding="async">
+    </picture>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">齐鲁大地 · 一份可以点开的地名档案</p>
+      <h1 class="hero-title" data-calli>山东地名志</h1>
+      <p class="hero-sub">山东有 136 个县级政区，每个名字都有自己的来历。有的取自当地的山川河流，有的沿用了古国和旧县的名称，也有一些名字，寄托着人们对这片土地的美好祝愿。</p>
+      <div class="hero-stats">
+        <div class="stat"><b>16</b><span>设区市</span></div>
+        <div class="stat"><b>136</b><span>县级政区</span></div>
+        <div class="stat"><b>8</b><span>类得名由来</span></div>
+        <div class="stat"><b>2000+</b><span>年地名史</span></div>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#map" aria-label="向下滚动">
+      <span></span>
+    </a>
+  </header>
+
+  <!-- ================= 01 地图 ================= -->
+  <section class="sec" id="map">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">01</div>
+        <div class="sec-head-txt">
+          <h2>一张可以点开的<span class="art" data-calli>地图</span></h2>
+          <p>地图上标出了山东 16 个设区市。点开其中一个城市，就能看到它下辖的县级政区。每个区域用不同颜色标注了地名的由来，点击色块，还能查看对应的地名档案。</p>
+        </div>
+      </div>
+
+      <div class="map-grid reveal">
+        <div class="map-panel">
+          <div class="map-head">
+            <div class="crumbs">
+              <button class="btn-back" id="btnBack" hidden>
+                <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                返回全省
+              </button>
+              <span class="crumb-now" id="crumbNow">山东省</span>
+              <span class="crumb-count" id="crumbCount">16 个设区市</span>
+            </div>
+            <div class="map-hint" id="mapHint">点击城市 · 展开县级地图</div>
+          </div>
+          <div id="map1" class="chart chart-map" data-clip></div>
+          <div class="county-strip" id="countyStrip" hidden></div>
+        </div>
+
+        <aside class="side">
+          <div class="side-card" id="sideCard">
+            <div class="side-empty" id="sideEmpty">
+              <p class="side-kicker">全省概览</p>
+              <h3>名字从哪来</h3>
+              <p>山东的县级地名里，超过三分之一来自山与水，超过四分之一直接沿用先秦古国与历代旧县的名字。真正“新造”的名字，反而最少。</p>
+              <div class="side-rank">
+                <p class="rank-t">占比最高的三类</p>
+                <ol id="sideRank"></ol>
+              </div>
+              <p class="side-fine">悬停查看 · 点击展开 · 双击或双指缩放</p>
+            </div>
+            <div class="side-detail" id="sideDetail" hidden>
+              <div class="detail-top">
+                <span class="detail-badge" id="dBadge">因水得名</span>
+                <span class="detail-city" id="dCity"></span>
+              </div>
+              <h3 class="detail-name" id="dName" data-calli></h3>
+              <p class="detail-text" id="dText"></p>
+              <div class="detail-foot" id="dFoot"></div>
+            </div>
+          </div>
+          <div class="legend" id="legend"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 由来分布 ================= -->
+  <section class="sec sec-alt" id="origin">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">02</div>
+        <div class="sec-head-txt">
+          <h2>名字是从哪里<span class="art" data-calli>长出来的</span></h2>
+          <p>按照每个地名最主要的由来，136 个县级地名被分为八类，并标注在地图上。其中，来自山水和古国旧名的地名占了六成以上。这也说明，山东许多地方的名字，都能在当地的自然环境和历史沿革中找到线索。</p>
+        </div>
+      </div>
+
+      <div class="origin-grid reveal">
+        <div class="origin-map-wrap">
+          <div id="map2" class="chart chart-county" data-clip></div>
+          <div class="map2-bar">
+            <span id="map2Note">按得名类型着色</span>
+            <button class="btn-reset" id="btnReset" hidden>显示全部</button>
+          </div>
+        </div>
+        <div class="origin-side">
+          <div class="origin-side-head">
+            <h3>八类由来</h3>
+            <span>单位：个县级政区</span>
+          </div>
+          <div id="bar" class="chart chart-bar"></div>
+          <div class="legend legend-2" id="legend2"></div>
+        </div>
+      </div>
+
+      <div class="type-cards" id="typeCards"></div>
+    </div>
+  </section>
+
+  <!-- ================= 03 名字有多美 ================= -->
+  <section class="sec" id="beauty">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">03</div>
+        <div class="sec-head-txt">
+          <h2>名字<span class="art" data-calli>有多美</span></h2>
+          <p>了解了地名的来历，也可以换个角度，看看这些名字本身。这里选出了 32 个山东地名，从读音、字形和联想到的画面出发，聊聊它们各自的韵味。你可以在地图上点击感兴趣的名字，也可以往下浏览，查看它们分别有哪些特点。</p>
+        </div>
+      </div>
+
+      <div class="bmap-grid reveal">
+        <div class="bmap-panel">
+          <div class="bmap-head">
+            <span class="bmap-title">三十二个名字，散在山东</span>
+            <span class="bmap-hint">点击名字 · 双击放大</span>
+          </div>
+          <div id="beautyMap" class="chart chart-beauty" data-clip></div>
+          <div class="bmap-legend" id="bmapLegend"></div>
+        </div>
+        <aside class="bmap-side" id="bmapSide"></aside>
+      </div>
+
+      <div class="beauty-cats reveal" id="beautyCats"></div>
+
+      <p class="beauty-note reveal">美不是玄学。一个地名好听，通常是四件事里的某一件做到了：读起来顺（音）、写出来好看（形）、能在脑子里成像（象）、故意不把话说完（空）。上面每一个名字的点评，都落在这四点上。</p>
+    </div>
+  </section>
+
+  <!-- ================= 04 名字怎么变 ================= -->
+  <section class="sec sec-alt" id="change">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">04</div>
+        <div class="sec-head-txt">
+          <h2>名字<span class="art" data-calli>怎么变</span></h2>
+          <p>一个地方的名字，也会随着时间发生变化。历史上的政权更替、治水修路和行政区划调整，都可能让地名发生改变。这一节整理了山东地名变迁的四种情况，带你看看那些改过名字的地方，以及后来从地图上消失的旧地名。</p>
+        </div>
+      </div>
+
+      <div class="chg-summary reveal" id="chgSummary"></div>
+      <div class="chg-list reveal" id="chgList"></div>
+
+      <div class="vanished reveal">
+        <p class="vanished-k">这一类没有新名字</p>
+        <h3>这些县名，现在只出现在旧地图上</h3>
+        <div class="vanished-wall" id="vanishedWall"></div>
+        <p class="vanished-foot">地图每改一次版，就有几个名字消失。没有人给它们送行。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 有意思的地名 ================= -->
+  <section class="sec" id="fun">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">05</div>
+        <div class="sec-head-txt">
+          <h2>有<span class="art" data-calli>意思</span>的地名</h2>
+          <p>有些名字难住外地人，有些名字藏着一整套制度，还有些名字，本身就是一句诗。</p>
+        </div>
+      </div>
+
+      <div class="block reveal">
+        <div class="block-head">
+          <h3>先来一轮读音挑战</h3>
+          <p>点一下，看拼音。<b>14 个最容易读错的县区名</b>，能全对的不多。</p>
+        </div>
+        <div class="readings" id="readings"></div>
+      </div>
+
+      <div class="block reveal">
+        <div class="block-head">
+          <h3>十八个值得一说的名字</h3>
+          <p>按类型筛一筛，看看这些名字背后的故事。</p>
+        </div>
+        <div class="chips" id="chips"></div>
+        <div class="fun-grid" id="funGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 测一测 ================= -->
+  <section class="sec sec-quiz" id="quiz">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">06</div>
+        <div class="sec-head-txt">
+          <h2>测一测：<span class="art" data-calli>最像你的</span>山东地名</h2>
+          <p>三个小问题，跟着直觉选就好。选完之后，看看山东哪个地方和你最投缘。</p>
+        </div>
+      </div>
+
+      <div class="quiz reveal" id="quizBox"></div>
+    </div>
+  </section>
+
+  <!-- ================= 结束语 ================= -->
+  <section class="sec-end" id="end">
+    <div class="end-bg" aria-hidden="true">
+      <div id="endMap" class="end-map"></div>
+      <div class="end-cloud"></div>
+    </div>
+    <div class="wrap end-inner">
+      <p class="end-l">你以为，</p>
+      <p class="end-l">地名只是地图上的几个字。</p>
+
+      <p class="end-l end-gap">其实——</p>
+      <p class="end-l">一座山的名字，</p>
+      <p class="end-l">一条河的名字，</p>
+      <p class="end-l">一座城走过的岁月……</p>
+      <p class="end-l">都藏在这几个字里。</p>
+
+      <p class="end-l end-gap">走过山东，</p>
+      <p class="end-l">读过地名，</p>
+      <p class="end-l">愿你下一次路过时，</p>
+      <p class="end-l">能认出它的名字。</p>
+      <p class="end-l end-gap">也记得，</p>
+      <p class="end-l">它曾经的故事。</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <div class="foot-brand">
+        <span class="seal">鲁</span>
+        <div>
+          <b>山东地名志</b>
+          <p>地名沿革多有异说，本页每处只取最常见的一种说法，供了解，不作考据依据。</p>
+        </div>
+      </div>
+      <div class="foot-meta">
+        <p><b>行政区划与边界</b> 阿里云 DataV 行政区划数据（136 个县级政区，含 2 个重名区已作区分），仅用于学习与研究</p>
+        <p><b>归类方法</b> 每县按最主要成因归并为一类，属编辑性简化，非官方分类</p>
+        <p><b>内容生产</b> 网站由 AI 辅助搭建。文案由大模型辅助生成初稿，经人工逐条校核与改写；书法标题字由 AI 生成</p>
+        <p><b>资料来源</b> 整理自《山东省志·地名志》及各市县地方志、民政部全国地名信息库</p>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script src="assets/echarts.min.js"></script>
+<script src="data/sd-geo.js"></script>
+<script src="data/toponymy.js"></script>
+<script src="data/sections.js"></script>
+<script src="data/calli.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
