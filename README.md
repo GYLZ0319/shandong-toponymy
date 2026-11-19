@@ -46,43 +46,7 @@
     └── calli.js            书法字检索表（文字 → 图片文件）
 ```
 
-## 本地预览
 
-必须先起一个本地服务器，不能直接双击 `index.html`。
-原因是浏览器对 `file://` 协议下的 `.webp` 和 canvas 有更严格的限制，用服务器访问才能完全正常。
-
-```bash
-# 任选一种
-python -m http.server 8000
-npx serve .
-```
-
-然后访问 <http://localhost:8000>。
-
-## 部署到 GitHub Pages
-
-1. 在 GitHub 新建一个仓库（公开或私有都可以，Pages 免费版要求公开）。
-2. 把本目录下的**全部文件**推到仓库根目录：
-
-```bash
-git init
-git add .
-git commit -m "山东地名志"
-git branch -M main
-git remote add origin https://github.com/你的用户名/你的仓库名.git
-git push -u origin main
-```
-
-1. 打开仓库 **Settings → Pages**，在 *Build and deployment* 里：
-
-   * **Source** 选 `Deploy from a branch`
-
-   * **Branch** 选 `main`，目录选 `/ (root)`
-
-   * 点 **Save**
-2. 等 1–2 分钟，访问 `https://你的用户名.github.io/你的仓库名/`。
-
-注：**`.nojekyll`** **文件不要删。** 它让 GitHub 跳过 Jekyll 构建，保证 `assets/`、`data/` 下的文件（含带下划线或特殊字符的路径）原样发布。
 
 ## 数据说明
 
