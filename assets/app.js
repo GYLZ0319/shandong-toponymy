@@ -1277,6 +1277,17 @@
       if (again) again.addEventListener('click', function () {
         answers = [null, null, null];
         render();
+        /* 结果卡一撤，页面立刻变矮，但滚动位置还停在原来的高度，
+           于是视口落到下面的结束语上——看起来像"没反应"。
+           这里把它拉回本节标题处。等一帧让浏览器先算完新布局再滚。 */
+        requestAnimationFrame(function () {
+          var sec = document.getElementById('quiz');
+          if (!sec) return;
+          var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10) || 58;
+          var head = sec.querySelector('.sec-head') || sec;
+          var top = head.getBoundingClientRect().top + (window.scrollY || document.documentElement.scrollTop) - navH - 40;
+          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        });
       });
       applyCalli(box);
     }
